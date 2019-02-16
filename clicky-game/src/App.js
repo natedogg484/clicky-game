@@ -3,6 +3,10 @@ import cards from './cards.json';
 import CharacterCard from './components/CharacterCard';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
+import Container from './components/Container';
+import Row from './components/Row';
+
+
 
 
 class App extends Component {
@@ -48,19 +52,23 @@ class App extends Component {
 
   render() {
     return (
-
-      <Wrapper>
-        <Title score={this.state.score} highscore={this.state.highscore}>South Park Clicky Game!! </Title>
-        {this.state.cards.map(cards => (
-          <CharacterCard
-            clickCount={this.clickCount}
-            id={cards.id}
-            key={cards.id}
-            name={cards.name}
-            image={cards.image}
-          />
-        ))}
-      </Wrapper>
+      <Container>
+        <Wrapper>
+          <Row>
+            <Title score={this.state.score} highscore={this.state.highscore}>South Park Clicky Game!! </Title>
+          </Row>
+          <Row>{this.state.cards.map(cards => (
+            <CharacterCard
+              clickCount={this.clickCount}
+              id={cards.id}
+              key={cards.id}
+              name={cards.name}
+              image={cards.image}
+            />
+          ))}
+          </Row>
+        </Wrapper>
+      </Container >
 
     );
   }
